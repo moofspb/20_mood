@@ -1,6 +1,8 @@
 # Site for the Mood
 
-[TODO. There will be project description]
+This is a simple site that shows random jokes.
+
+Check it on [GitHub Pages](https://moofspb.github.io/20_mood/)
 
 # Project Goals
 
