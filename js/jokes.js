@@ -3,13 +3,13 @@ function getRandomJoke() {
     var jokes = (data["jokes"]);
     var item = jokes[Math.floor(Math.random() * jokes.length)];
     var joke = item['phrase'];
-    $("p").append(joke)
+    $(".joke-content").append(joke)
   });
 }
 
 getRandomJoke();
 
-$("a").click(function () {
-  $("p").empty();
+$(".action-button").click(function () {
+  $(".joke-content").empty();
   $(getRandomJoke)
 });
