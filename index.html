@@ -8,14 +8,33 @@
 </head>
 
 <body>
+
   <h1>Шутеечки за триста</h1>
   <div id="container">
-    <p class="joke-content"></p>
+    <p class="js-joke-content"></p>
   </div>
-  <div id="joke-reloader">
-    <a href="#" class="action-button shadow animate green">Шуткануть</a>
+  <div id="reload-button">
+    <a href="#" id="js-joke-reloader" class="action-button shadow animate green">Шуткануть</a>
   </div>
 
-  <script type="text/javascript" src="js/jokes.js"></script>
+  <script type="text/javascript">
+    function getRandomJoke() {
+      $.getJSON('jokes.json', function (data) {
+        var jokes = (data["jokes"]);
+        var item = jokes[Math.floor(Math.random() * jokes.length)];
+        var joke = item['phrase'];
+        $(".js-joke-content").append(joke)
+      });
+    }
+
+    getRandomJoke();
+
+    $("#js-joke-reloader").click(function () {
+      $(".js-joke-content").empty();
+      $(getRandomJoke)
+    });
+
+  </script>
+
 </body>
 </html>
